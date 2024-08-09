@@ -40,7 +40,7 @@ spec:
         - name: PGDATA
           value: /data/postgres
         - name: PGPORT
-          value: 5432
+          value: "5432"
         - name: POSTGRES_SCHEMA
           value: public
 
