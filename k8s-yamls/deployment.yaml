@@ -191,7 +191,7 @@ Z0oyaHFISjZxejRBL1lVSFZ3PT0NCi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tDQo="
           value: ""
 
       - name: frontend
-        image: katieharris/lago-frontend:v0.01
+        image: katieharris/lago-frontend:v0.02
         ports:
         - containerPort: 80
         env:
