@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: lago-deployment
-  namespace: lago-test
   labels:
     app: lago
 spec:
@@ -68,11 +67,11 @@ spec:
           mountPath: "/app/storage"
         env:
         - name: LAGO_API_URL
-          value: BASE_HOST_NAME_AND_PATH/api/
+          value: BASE_HOST_NAME_AND_PATH/api
         - name: DATABASE_URL
-          value: postgres://lago:changeme@lago-service:5432/lago?search_path=public
+          value: postgres://lago:changeme@localhost:5432/lago?search_path=public
         - name: REDIS_URL
-          value: redis://lago-service:6379
+          value: redis://localhost:6379
         - name: REDIS_PASSWORD
           value: ""
         - name: SECRET_KEY_BASE
@@ -174,9 +173,9 @@ Z0oyaHFISjZxejRBL1lVSFZ3PT0NCi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tDQo="
         - name: LAGO_GCS_BUCKET
           value: ""
         - name: LAGO_PDF_URL
-          value: BASE_HOST_NAME_AND_PATH/pdf/
+          value: BASE_HOST_NAME_AND_PATH/pdf
         - name: LAGO_REDIS_CACHE_URL
-          value: redis://lago-service:6379
+          value: redis://localhost:6379
         - name: LAGO_REDIS_CACHE_PASSWORD
           value: ""
         - name: LAGO_DISABLE_SEGMENT
@@ -196,11 +195,11 @@ Z0oyaHFISjZxejRBL1lVSFZ3PT0NCi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tDQo="
         - containerPort: 80
         env:
         - name: API_URL
-          value: BASE_HOST_NAME_AND_PATH/api/
+          value: BASE_HOST_NAME_AND_PATH/api
         - name: APP_ENV
           value: production
         - name: CODEGEN_API
-          value: BASE_HOST_NAME_AND_PATH/api/
+          value: BASE_HOST_NAME_AND_PATH/api
         - name: LAGO_DISABLE_SIGNUP
           value: "false"
         - name: LAGO_OAUTH_PROXY_URL
@@ -217,11 +216,11 @@ Z0oyaHFISjZxejRBL1lVSFZ3PT0NCi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tDQo="
           mountPath: "/app/storage"
         env:
         - name: LAGO_API_URL
-          value: BASE_HOST_NAME_AND_PATH/api/
+          value: BASE_HOST_NAME_AND_PATH/api
         - name: DATABASE_URL
-          value: postgres://lago:changeme@lago-service:5432/lago?search_path=public
+          value: postgres://lago:changeme@localhost:5432/lago?search_path=public
         - name: REDIS_URL
-          value: redis://lago-service:6379
+          value: redis://localhost:6379
         - name: REDIS_PASSWORD
           value: ""
         - name: SECRET_KEY_BASE
@@ -323,9 +322,9 @@ Z0oyaHFISjZxejRBL1lVSFZ3PT0NCi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tDQo="
         - name: LAGO_GCS_BUCKET
           value: ""
         - name: LAGO_PDF_URL
-          value: BASE_HOST_NAME_AND_PATH/pdf/
+          value: BASE_HOST_NAME_AND_PATH/pdf
         - name: LAGO_REDIS_CACHE_URL
-          value: redis://lago-service:6379
+          value: redis://localhost:6379
         - name: LAGO_REDIS_CACHE_PASSWORD
           value: ""
         - name: LAGO_DISABLE_SEGMENT
@@ -343,11 +342,11 @@ Z0oyaHFISjZxejRBL1lVSFZ3PT0NCi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tDQo="
         image: katieharris/lago-api-clock:v0.01
         env:
         - name: LAGO_API_URL
-          value: BASE_HOST_NAME_AND_PATH/api/
+          value: BASE_HOST_NAME_AND_PATH/api
         - name: DATABASE_URL
-          value: postgres://lago:changeme@lago-service:5432/lago?search_path=public
+          value: postgres://lago:changeme@localhost:5432/lago?search_path=public
         - name: REDIS_URL
-          value: redis://lago-service:6379
+          value: redis://localhost:6379
         - name: REDIS_PASSWORD
           value: ""
         - name: SECRET_KEY_BASE
@@ -441,7 +440,7 @@ Z0oyaHFISjZxejRBL1lVSFZ3PT0NCi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tDQo="
         - containerPort: 3001
       
       - name: migrate
-        image: katieharris/lago-migrate:v0.01
+        image: katieharris/lago-migrate:v0.02
         volumeMounts:
         - name: lago-storage-data
           mountPath: "/app/storage"
@@ -513,9 +512,9 @@ d1dMWExoSVNpKw0KMTZ1RWJZQWNwVlBiZDFsS1Z5b29ZZ3hZYzBWUjlZK2JuT0dCV3k3R2FvZnRQ
 VzgxVkVCZnk0c3J6TUNkbWU3QQ0KWkhJQmwzZHhkNSt2eUVONmpHS05xcEwxNnRmTno2dUcveU1k
 Z0oyaHFISjZxejRBL1lVSFZ3PT0NCi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tDQo="
         - name: DATABASE_URL
-          value: postgres://lago:changeme@lago-service:5432/lago?search_path=public
+          value: postgres://lago:changeme@localhost:5432/lago?search_path=public
         - name: REDIS_URL
-          value: redis://lago-service:6379
+          value: redis://localhost:6379
         - name: REDIS_PASSWORD
           value: ""
 
